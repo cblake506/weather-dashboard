@@ -15,7 +15,21 @@ function getWeather(event){
         })
         .then(function (data) {
         console.log(data);
+
+        var tempEl = document.getElementById('temperature');
+
+        var high = convertKtoF(data.main.temp_max);
+        var low = convertKtoF(data.main.temp_min);
+        var temp = convertKtoF(data.main.temp);
+        tempEl.insertAdjacentHTML('beforeend', '<li>Current: ' + temp + 'F</li>');
+        tempEl.insertAdjacentHTML('beforeend', '<li>Daily high: ' + high + 'F</li>');
+        tempEl.insertAdjacentHTML('beforeend', '<li>Daily low: ' + low + 'F</li>');
         });
+    
+}
+
+function convertKtoF(kelvin){
+    return Math.round(1.8 * (kelvin - 273) + 32);
 }
 
 document.getElementById('city-button').addEventListener('click', getWeather)
