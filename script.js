@@ -14,9 +14,9 @@ function getWeather(event){
         return response.json();
         })
         .then(function (data) {
-        console.log(data);
 
         var tempEl = document.getElementById('temperature');
+        tempEl.innerHTML = "";
 
         var high = convertKtoF(data.main.temp_max);
         var low = convertKtoF(data.main.temp_min);
