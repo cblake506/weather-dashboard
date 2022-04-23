@@ -2,8 +2,7 @@ function getWeather(event){
     event.preventDefault();
 
     var apiKey = '&appid=1c27f27a707bdfd5f41ae112c33f6e37';
-    // var city = document.getElementById('city').textContent;
-    var city = 'austin';
+    var city = document.getElementById('city').value;
 
     var url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + apiKey;
     fetch(url, {
